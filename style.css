@@ -411,10 +411,10 @@ body::before {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--color-text);
   animation: fadeInUp 0.7s 0.1s var(--ease-out) both;
 }
@@ -428,10 +428,11 @@ body::before {
 }
 
 .hero-desc {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--color-text-muted);
-  max-width: 560px;
+  max-width: 600px;
   line-height: 1.75;
+  margin-top: 8px;
   animation: fadeInUp 0.7s 0.2s var(--ease-out) both;
 }
 
