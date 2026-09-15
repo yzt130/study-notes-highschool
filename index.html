@@ -17,26 +17,37 @@
 
   <!-- Whale SVG watermark -->
   <div class="whale-container" aria-hidden="true">
-    <svg class="whale-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-      <!-- Whale body -->
-      <ellipse cx="400" cy="260" rx="280" ry="110" fill="currentColor"/>
-      <!-- Tail fin left -->
-      <path d="M120 270 Q60 200 80 300 Q100 350 140 310Z" fill="currentColor"/>
-      <!-- Tail fin right -->
-      <path d="M120 270 Q55 350 90 400 Q120 420 148 360Z" fill="currentColor"/>
+    <svg class="whale-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+      <!-- Main body -->
+      <ellipse cx="460" cy="270" rx="300" ry="115" fill="currentColor"/>
+      <!-- Tail stock -->
+      <path d="M160 275 Q120 265 105 270 Q95 275 105 285 Q120 290 160 280Z" fill="currentColor"/>
+      <!-- Tail fluke left -->
+      <path d="M108 270 Q45 205 62 298 Q75 350 118 315Z" fill="currentColor"/>
+      <!-- Tail fluke right -->
+      <path d="M108 282 Q40 355 72 408 Q98 432 128 378Z" fill="currentColor"/>
+      <!-- Tail notch -->
+      <ellipse cx="108" cy="277" rx="10" ry="6" fill="rgba(255,255,255,0.06)"/>
       <!-- Pectoral fin -->
-      <path d="M320 310 Q280 390 340 400 Q380 380 360 310Z" fill="currentColor"/>
-      <!-- Head bump -->
-      <ellipse cx="640" cy="240" rx="90" ry="70" fill="currentColor"/>
-      <!-- Mouth line -->
-      <path d="M680 260 Q700 270 690 280" stroke="rgba(0,0,0,0.15)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M360 318 Q310 405 372 416 Q418 398 395 318Z" fill="currentColor"/>
+      <!-- Head -->
+      <ellipse cx="730" cy="252" rx="100" ry="78" fill="currentColor"/>
+      <!-- Rostrum / snout -->
+      <path d="M820 252 Q860 256 858 268 Q855 278 818 270Z" fill="currentColor"/>
+      <!-- Throat grooves -->
+      <path d="M480 330 Q580 348 680 338" stroke="rgba(255,255,255,0.06)" stroke-width="3" fill="none"/>
+      <path d="M480 342 Q580 358 670 348" stroke="rgba(255,255,255,0.04)" stroke-width="2" fill="none"/>
+      <!-- Belly -->
+      <ellipse cx="490" cy="318" rx="200" ry="52" fill="rgba(255,255,255,0.055)"/>
       <!-- Eye -->
-      <circle cx="670" cy="235" r="10" fill="rgba(0,0,0,0.2)"/>
-      <circle cx="673" cy="232" r="3" fill="rgba(255,255,255,0.4)"/>
+      <circle cx="770" cy="242" r="11" fill="rgba(0,0,0,0.22)"/>
+      <circle cx="773" cy="239" r="4" fill="rgba(255,255,255,0.45)"/>
       <!-- Blowhole -->
-      <ellipse cx="630" cy="180" rx="15" ry="6" fill="rgba(0,0,0,0.1)"/>
-      <!-- Belly lighter area -->
-      <ellipse cx="430" cy="300" rx="180" ry="55" fill="rgba(255,255,255,0.06)"/>
+      <ellipse cx="718" cy="184" rx="16" ry="7" fill="rgba(0,0,0,0.1)"/>
+      <!-- Mouth line -->
+      <path d="M828 262 Q848 272 840 282" stroke="rgba(0,0,0,0.12)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <!-- Dorsal ridge -->
+      <path d="M520 160 Q560 152 600 158" stroke="rgba(255,255,255,0.04)" stroke-width="4" fill="none" stroke-linecap="round"/>
     </svg>
   </div>
 
@@ -52,18 +63,19 @@
   <header class="site-header">
     <div class="header-inner container">
       <div class="logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="16" fill="url(#logoGrad)"/>
-          <path d="M10 22 Q16 8 22 22" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <circle cx="16" cy="13" r="2.5" fill="white" opacity="0.9"/>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" fill="url(#pageGrad)" stroke="rgba(86,179,244,0.6)" stroke-width="0.5"/>
+          <polyline points="14 2 14 8 20 8" stroke="rgba(86,179,244,0.8)" stroke-width="1.2" fill="none"/>
+          <line x1="8" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="8" y1="17" x2="14" y2="17" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/>
           <defs>
-            <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32">
+            <linearGradient id="pageGrad" x1="0" y1="0" x2="24" y2="24">
               <stop offset="0%" stop-color="#1e6fa8"/>
               <stop offset="100%" stop-color="#0d3b6e"/>
             </linearGradient>
           </defs>
         </svg>
-        <span class="logo-text">DeepNotes</span>
+        <span class="logo-text">MyNotes</span>
       </div>
 
       <nav class="main-nav" id="mainNav">
@@ -198,8 +210,8 @@
       </div>
       <div class="about-text">
         <p class="section-eyebrow">✦ Về trang web</p>
-        <h2 class="section-title">Tại sao tôi tạo<br/><em>DeepNotes?</em></h2>
-        <p>Trong quá trình học tập, tôi nhận ra mình cần một nơi để lưu trữ và chia sẻ các ghi chú lý thuyết một cách có hệ thống. <strong>DeepNotes</strong> ra đời như một thư viện cá nhân mở, nơi mọi người có thể truy cập và tham khảo.</p>
+        <h2 class="section-title">Tại sao tôi tạo<br/><em>MyNotes?</em></h2>
+        <p>Trong quá trình học tập, tôi nhận ra mình cần một nơi để lưu trữ và chia sẻ các ghi chú lý thuyết một cách có hệ thống. <strong>MyNotes</strong> ra đời như một thư viện cá nhân mở, nơi mọi người có thể truy cập và tham khảo.</p>
         <p>Tất cả tài liệu đều miễn phí và có thể tải về dưới dạng PDF. Nội dung được cập nhật thường xuyên theo chương trình THPT hiện hành.</p>
         <ul class="about-features">
           <li>
@@ -227,7 +239,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-text">DeepNotes</span>
+        <span class="logo-text">MyNotes</span>
         <p>Ghi chú lý thuyết THPT</p>
       </div>
       <div class="footer-links">
@@ -236,7 +248,7 @@
         <a href="#notes">Ghi chú</a>
         <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="footer-copy">© 2026 DeepNotes. Made with 💙</p>
+      <p class="footer-copy">© 2026 MyNotes. Made with 💙</p>
     </div>
   </footer>
 
@@ -257,6 +269,12 @@
         <iframe id="pdfFrame" src="" title="PDF Viewer" allowfullscreen></iframe>
       </div>
     </div>
+  </div>
+
+  <!-- Bottom-right signature -->
+  <div class="corner-signature" aria-hidden="true">
+    <p class="signature-wish">Chúc bạn học tốt</p>
+    <p class="signature-name">MinJi</p>
   </div>
 
   <script src="data.js"></script>
