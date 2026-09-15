@@ -18,13 +18,6 @@ const SUBJECTS = [
   { id: "toan",    name: "Toán học",    icon: "📐", color: ["#3b82f6", "#1d4ed8"] },
   { id: "ly",      name: "Vật lý",      icon: "⚡", color: ["#f59e0b", "#b45309"] },
   { id: "hoa",     name: "Hóa học",     icon: "🧪", color: ["#10b981", "#065f46"] },
-  { id: "van",     name: "Ngữ văn",     icon: "📖", color: ["#ec4899", "#9d174d"] },
-  { id: "anh",     name: "Tiếng Anh",   icon: "🌐", color: ["#8b5cf6", "#5b21b6"] },
-  { id: "su",      name: "Lịch sử",     icon: "🏛️", color: ["#ef4444", "#991b1b"] },
-  { id: "dia",     name: "Địa lý",      icon: "🌏", color: ["#06b6d4", "#0e7490"] },
-  { id: "sinh",    name: "Sinh học",    icon: "🧬", color: ["#84cc16", "#365314"] },
-  { id: "tin",     name: "Tin học",     icon: "💻", color: ["#64748b", "#334155"] },
-  { id: "gdcd",    name: "GDCD",        icon: "⚖️", color: ["#f97316", "#9a3412"] },
 ];
 
 /**
