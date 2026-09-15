@@ -15,15 +15,9 @@
  */
 
 const SUBJECTS = [
-  { id: "toan-10", name: "Toán học 10", icon: "📐", color: ["#3b82f6", "#1d4ed8"] },
-  { id: "toan-11", name: "Toán học 11", icon: "📐", color: ["#3b82f6", "#1d4ed8"] },
-  { id: "toan-12", name: "Toán học 12", icon: "📐", color: ["#3b82f6", "#1d4ed8"] },
-  { id: "ly-10",   name: "Vật lý 10",   icon: "⚡", color: ["#f59e0b", "#b45309"] },
-  { id: "ly-11",   name: "Vật lý 11",   icon: "⚡", color: ["#f59e0b", "#b45309"] },
-  { id: "ly-12",   name: "Vật lý 12",   icon: "⚡", color: ["#f59e0b", "#b45309"] },
-  { id: "hoa-10",  name: "Hóa học 10",  icon: "🧪", color: ["#10b981", "#065f46"] },
-  { id: "hoa-11",  name: "Hóa học 11",  icon: "🧪", color: ["#10b981", "#065f46"] },
-  { id: "hoa-12",  name: "Hóa học 12",  icon: "🧪", color: ["#10b981", "#065f46"] },
+  { id: "toan", name: "Toán học", icon: "📐", color: ["#3b82f6", "#1d4ed8"] },
+  { id: "ly",   name: "Vật lý",   icon: "⚡", color: ["#f59e0b", "#b45309"] },
+  { id: "hoa",  name: "Hóa học",  icon: "🧪", color: ["#10b981", "#065f46"] },
 ];
 
 /**
@@ -32,6 +26,8 @@ const SUBJECTS = [
  * Bước 1: Upload file PDF vào thư mục notes/
  * Bước 2: Thêm object vào mảng dưới đây
  * Bước 3: Push lên GitHub, trang web sẽ tự động cập nhật
+ * 
+ * Các object ghi chú cần có trường "grade" (ví dụ: 10, 11, 12).
  */
 const NOTES = [
   // ──── VÍ DỤ MẪU — BẠN CÓ THỂ XÓA HOẶC THAY THẾ ────

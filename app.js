@@ -7,6 +7,7 @@
 /* ─── State ─── */
 const state = {
   activeFilter: 'all',
+  activeGrade: 'all',
   searchQuery: '',
   viewMode: 'grid',   // 'grid' | 'list'
 };
@@ -125,24 +126,38 @@ function renderSubjects() {
   dom.subjectsGrid.innerHTML = SUBJECTS.map(s => {
     const count = NOTES.filter(n => n.subject === s.id).length;
     return `
-      <button
+      <div
         class="subject-card reveal"
         data-subject="${s.id}"
         style="--card-color: ${s.color[0]}22"
-        aria-label="Xem ghi chú môn ${s.name}"
       >
         <span class="subject-icon">${s.icon}</span>
         <span class="subject-name">${s.name}</span>
         <span class="subject-count">${count} ghi chú</span>
-      </button>
+        <div class="grade-links">
+          <button class="grade-btn" data-subject="${s.id}" data-grade="10">Lớp 10</button>
+          <button class="grade-btn" data-subject="${s.id}" data-grade="11">Lớp 11</button>
+          <button class="grade-btn" data-subject="${s.id}" data-grade="12">Lớp 12</button>
+        </div>
+      </div>
     `;
   }).join('');
 
   // Attach events
+  dom.subjectsGrid.querySelectorAll('.grade-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const subject = btn.dataset.subject;
+      const grade = btn.dataset.grade;
+      filterBySubjectAndGrade(subject, grade);
+      document.getElementById('notes')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  
   dom.subjectsGrid.querySelectorAll('.subject-card').forEach(card => {
     card.addEventListener('click', () => {
       const subject = card.dataset.subject;
-      filterBySubject(subject);
+      filterBySubjectAndGrade(subject, 'all');
       document.getElementById('notes')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
@@ -169,13 +184,18 @@ function renderFilterChips() {
 
   dom.filterChips.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => {
-      const filter = chip.dataset.filter;
-      state.activeFilter = filter;
-      dom.filterChips.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      renderNotes();
+      filterBySubjectAndGrade(chip.dataset.filter, state.activeGrade);
     });
   });
+
+  const gradeChips = document.getElementById('gradeChips');
+  if (gradeChips) {
+    gradeChips.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterBySubjectAndGrade(state.activeFilter, chip.dataset.grade);
+      });
+    });
+  }
 }
 
 /* ═══════════════════════════════════════
@@ -186,6 +206,10 @@ function getFilteredNotes() {
 
   if (state.activeFilter !== 'all') {
     notes = notes.filter(n => n.subject === state.activeFilter);
+  }
+  
+  if (state.activeGrade !== 'all') {
+    notes = notes.filter(n => String(n.grade) === String(state.activeGrade));
   }
 
   if (state.searchQuery.trim()) {
@@ -322,11 +346,19 @@ function renderNotes() {
 /* ═══════════════════════════════════════
    FILTER HELPER
 ═══════════════════════════════════════ */
-function filterBySubject(subjectId) {
+function filterBySubjectAndGrade(subjectId, gradeId) {
   state.activeFilter = subjectId;
+  state.activeGrade = gradeId;
+  
   dom.filterChips?.querySelectorAll('.chip').forEach(c => {
     c.classList.toggle('active', c.dataset.filter === subjectId);
   });
+  
+  const gradeChips = document.getElementById('gradeChips');
+  gradeChips?.querySelectorAll('.chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.grade === String(gradeId));
+  });
+  
   renderNotes();
 }
 
