@@ -15,43 +15,146 @@
   <!-- Canvas for stars & particles -->
   <canvas id="starCanvas"></canvas>
 
-  <!-- Whale SVG watermark -->
+  <!-- Dolphin watermark — jumping out of water -->
   <div class="whale-container" aria-hidden="true">
-    <svg class="whale-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
-      <!-- Main body -->
-      <ellipse cx="460" cy="270" rx="300" ry="115" fill="currentColor"/>
-      <!-- Tail stock -->
-      <path d="M160 275 Q120 265 105 270 Q95 275 105 285 Q120 290 160 280Z" fill="currentColor"/>
-      <!-- Tail fluke left -->
-      <path d="M108 270 Q45 205 62 298 Q75 350 118 315Z" fill="currentColor"/>
-      <!-- Tail fluke right -->
-      <path d="M108 282 Q40 355 72 408 Q98 432 128 378Z" fill="currentColor"/>
-      <!-- Tail notch -->
-      <ellipse cx="108" cy="277" rx="10" ry="6" fill="rgba(255,255,255,0.06)"/>
-      <!-- Pectoral fin -->
-      <path d="M360 318 Q310 405 372 416 Q418 398 395 318Z" fill="currentColor"/>
-      <!-- Head -->
-      <ellipse cx="730" cy="252" rx="100" ry="78" fill="currentColor"/>
-      <!-- Rostrum / snout -->
-      <path d="M820 252 Q860 256 858 268 Q855 278 818 270Z" fill="currentColor"/>
-      <!-- Throat grooves -->
-      <path d="M480 330 Q580 348 680 338" stroke="rgba(255,255,255,0.06)" stroke-width="3" fill="none"/>
-      <path d="M480 342 Q580 358 670 348" stroke="rgba(255,255,255,0.04)" stroke-width="2" fill="none"/>
-      <!-- Belly -->
-      <ellipse cx="490" cy="318" rx="200" ry="52" fill="rgba(255,255,255,0.055)"/>
-      <!-- Eye -->
-      <circle cx="770" cy="242" r="11" fill="rgba(0,0,0,0.22)"/>
-      <circle cx="773" cy="239" r="4" fill="rgba(255,255,255,0.45)"/>
-      <!-- Blowhole -->
-      <ellipse cx="718" cy="184" rx="16" ry="7" fill="rgba(0,0,0,0.1)"/>
-      <!-- Mouth line -->
-      <path d="M828 262 Q848 272 840 282" stroke="rgba(0,0,0,0.12)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <!-- Dorsal ridge -->
-      <path d="M520 160 Q560 152 600 158" stroke="rgba(255,255,255,0.04)" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <svg class="whale-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- ── Water surface line ── -->
+      <path d="M0 420 Q80 408 160 418 Q240 428 320 415 Q400 402 480 414 Q560 426 640 412 Q720 400 800 410 Q860 416 900 408 L900 600 L0 600Z"
+            fill="rgba(10,50,120,0.18)"/>
+      <!-- water ripple shimmer -->
+      <path d="M0 420 Q80 408 160 418 Q240 428 320 415 Q400 402 480 414 Q560 426 640 412 Q720 400 800 410 Q860 416 900 408"
+            stroke="rgba(86,179,244,0.12)" stroke-width="2.5" fill="none"/>
+
+      <!-- ── Water splashes at entry/exit ── -->
+      <!-- Left splash (tail exit) -->
+      <path d="M200 415 Q185 385 178 360" stroke="rgba(86,179,244,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M200 415 Q212 382 218 355" stroke="rgba(86,179,244,0.14)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M200 415 Q195 395 188 375" stroke="rgba(86,179,244,0.1)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Droplets left -->
+      <circle cx="178" cy="348" r="3.5" fill="rgba(86,179,244,0.2)"/>
+      <circle cx="220" cy="344" r="2.5" fill="rgba(86,179,244,0.16)"/>
+      <circle cx="160" cy="365" r="2"   fill="rgba(86,179,244,0.14)"/>
+      <circle cx="232" cy="360" r="2"   fill="rgba(86,179,244,0.12)"/>
+
+      <!-- Right splash (nose entry) -->
+      <path d="M700 418 Q715 388 722 362" stroke="rgba(86,179,244,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M700 418 Q688 390 682 364" stroke="rgba(86,179,244,0.14)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Droplets right -->
+      <circle cx="724" cy="354" r="3.5" fill="rgba(86,179,244,0.2)"/>
+      <circle cx="680" cy="358" r="2.5" fill="rgba(86,179,244,0.16)"/>
+      <circle cx="736" cy="372" r="2"   fill="rgba(86,179,244,0.12)"/>
+      <circle cx="668" cy="375" r="2"   fill="rgba(86,179,244,0.1)"/>
+
+      <!-- ── Dolphin body — graceful leaping arc ── -->
+      <!--
+        The dolphin arcs from lower-left (tail near water)
+        up through the center peak, then curves down to the right (snout re-entering).
+        Body is a thick curved stroke made from a filled path.
+      -->
+      <!-- Main body shape -->
+      <path d="
+        M 210 400
+        C 220 350, 260 260, 340 200
+        C 400 155, 470 135, 540 148
+        C 610 162, 660 200, 690 250
+        C 710 280, 718 320, 710 380
+        C 706 408, 700 420, 695 425
+        C 688 430, 680 426, 678 420
+        C 674 408, 678 380, 675 350
+        C 668 295, 640 252, 608 228
+        C 568 198, 520 185, 468 188
+        C 410 192, 360 220, 312 268
+        C 268 310, 242 368, 232 408
+        C 228 422, 218 428, 210 425
+        C 204 422, 202 412, 210 400 Z
+      " fill="currentColor"/>
+
+      <!-- Belly / lighter underside -->
+      <path d="
+        M 218 408
+        C 228 370, 252 310, 300 268
+        C 348 224, 400 200, 458 196
+        C 510 192, 558 208, 596 238
+        C 628 262, 652 300, 662 345
+        C 668 375, 666 405, 664 418
+        C 656 416, 652 400, 648 375
+        C 638 330, 616 292, 584 268
+        C 550 242, 506 228, 460 230
+        C 408 232, 360 256, 316 298
+        C 274 338, 250 392, 240 416
+        C 232 416, 222 414, 218 408 Z
+      " fill="rgba(255,255,255,0.055)"/>
+
+      <!-- ── Dorsal fin ── -->
+      <path d="
+        M 460 148
+        C 468 120, 490 90, 510 72
+        C 522 62, 534 68, 530 82
+        C 524 100, 506 118, 498 138
+        Z
+      " fill="currentColor"/>
+
+      <!-- ── Pectoral fin (left/visible side) ── -->
+      <path d="
+        M 350 220
+        C 330 248, 316 280, 328 304
+        C 336 318, 352 312, 368 290
+        C 382 270, 384 240, 372 220
+        Z
+      " fill="currentColor"/>
+
+      <!-- ── Tail flukes ── -->
+      <!-- Upper fluke -->
+      <path d="
+        M 210 400
+        C 196 378, 174 350, 155 332
+        C 140 318, 126 320, 130 338
+        C 134 354, 155 368, 176 390
+        C 190 404, 204 414, 210 410 Z
+      " fill="currentColor"/>
+      <!-- Lower fluke -->
+      <path d="
+        M 210 410
+        C 198 426, 180 446, 162 458
+        C 148 468, 134 464, 136 448
+        C 140 432, 160 418, 182 410
+        C 196 406, 208 408, 210 412 Z
+      " fill="currentColor"/>
+      <!-- Tail notch indent -->
+      <path d="M 208 408 Q 202 412 208 416" stroke="rgba(255,255,255,0.08)" stroke-width="2" fill="none"/>
+
+      <!-- ── Snout / rostrum ── -->
+      <path d="
+        M 695 418
+        C 700 398, 710 375, 720 360
+        C 726 350, 732 348, 736 356
+        C 740 366, 732 382, 722 398
+        C 714 412, 704 424, 696 426 Z
+      " fill="currentColor"/>
+
+      <!-- Smile line -->
+      <path d="M 718 372 Q 726 378 722 386"
+            stroke="rgba(255,255,255,0.15)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- ── Eye ── -->
+      <circle cx="688" cy="345" r="9"   fill="rgba(0,0,0,0.28)"/>
+      <circle cx="691" cy="342" r="3.5" fill="rgba(255,255,255,0.55)"/>
+
+      <!-- ── Blowhole ── -->
+      <ellipse cx="664" cy="304" rx="7" ry="4"
+               transform="rotate(-30,664,304)" fill="rgba(0,0,0,0.12)"/>
+
+      <!-- ── Speed lines / motion streaks ── -->
+      <path d="M 380 178 Q 360 172 340 175" stroke="rgba(86,179,244,0.1)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M 390 192 Q 365 186 342 190" stroke="rgba(86,179,244,0.07)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
     </svg>
   </div>
 
+
   <!-- Bubble particles -->
+
   <div class="bubbles" aria-hidden="true">
     <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
     <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
